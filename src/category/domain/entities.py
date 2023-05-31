@@ -1,45 +1,26 @@
-from collections import namedtuple
 from datetime import datetime
 from dataclasses import dataclass, field
-from typing import Optional, NamedTuple
+from typing import Optional
+from __seedwork.domain.entities import Entity
+
+# pylint: disable=unnecessary-lambda
 
 
-@dataclass
-class Category:
+@dataclass(kw_only=True, frozen=True, slots=True)
+class Category(Entity):
     name: str
     description: Optional[str] = None
     is_active: Optional[bool] = True
     created_at: Optional[datetime] = field(
         default_factory=lambda: datetime.now()
-    )  # a way to make sure different values will be generated for every instance created
+    )
 
+    def update(self, name: str, description: str) -> None:
+        self._set("name", name)
+        self._set("description", description)
 
+    def activate(self) -> None:
+        self._set("is_active", True)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# other ways to use it
-# class Product(NamedTuple):
-#    id: str
-#    name: str#
-
-# Product()
-# Product = namedtuple("Product", ["id", "name"])
-
-# Product()
+    def deactivate(self) -> None:
+        self._set("is_active", False)
