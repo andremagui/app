@@ -6,3 +6,5 @@ services:
     container_name: micro-videos-python-app
     volumes:
       - .:/home/python/app
+
+# multiple docker-compose
