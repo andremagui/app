@@ -22,7 +22,7 @@
     "[Dracula]": { "enabled": true }
   },
   "editor.formatOnSave": true,
-  "python.testing.pytestArgs": ["src", "--ignore", "__pypackages__"],
+  "python.testing.pytestArgs": ["src", "--ignore", "__pypackages__", "-s"],
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true
   //"python.testing.unittestArgs": ["-v", "-s", "./src", "-p", "test_*.py"],

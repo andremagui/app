@@ -7,6 +7,7 @@ authors = [
     {name = "Andre Marchesini de Aguiar", email = "amarchesini89@gmail.com"},
 ]
 dependencies = [
+    "djangorestframework>=3.14.0",
 ]
 requires-python = ">=3.10.2"
 license = {text = "MIT"}
